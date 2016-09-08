@@ -30,7 +30,9 @@ const config = {
     process.env.NODE_ENV === 'production'
     ? 'akinat.herokuapp.com'
     : localip,
-  server_port : process.env.PORT || 3000,
+  server_port : process.env.NODE_ENV === 'production'
+  ? process.env.PORT
+  : 3000,
 
   // ----------------------------------
   // Compiler Configuration
