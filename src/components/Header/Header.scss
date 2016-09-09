@@ -1,4 +1,11 @@
-.activeRoute {
-  font-weight: bold;
-  text-decoration: underline;
+.text {
+  color: white;
+  letter-spacing: 2px;
+  margin-top: 20vh;
+  line-height: 35px;
+  margin-bottom: 7vh;
+  text-align: center;
+  @media screen and (max-width: 500px) {
+    margin-top: 10vh;
+  }
 }

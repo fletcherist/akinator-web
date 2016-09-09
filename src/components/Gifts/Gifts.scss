@@ -1,0 +1,40 @@
+.gift1 {
+	-webkit-mask: url('./components/Gifts/icons/gift.svg') no-repeat 50% 50%;
+	z-index: 999999999;
+	-webkit-mask-size: 20vh;
+	position: absolute;
+	width: 30vh;
+	height: 30vh;
+	cursor: pointer;
+	opacity: .8;
+	outline: 0px;
+	outline-width: 0px;
+	float: right;
+	transition: transform .4s, background-color 2s, opacity .4s;
+	cursor: pointer;
+  background: white;
+  transform: rotate(30deg);
+  bottom: 50px;
+  left: -50px;
+}
+
+
+.brain1 {
+  -webkit-mask: url('./components/Gifts/icons/brain.svg') no-repeat 50% 50%;
+  z-index: 999999999;
+  -webkit-mask-size: 30vh;
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  cursor: pointer;
+  opacity: .4;
+  outline: 0px;
+  outline-width: 0px;
+  float: right;
+  transition: transform .4s, background-color 2s, opacity .4s;
+  cursor: pointer;
+  background: white;
+  bottom: 250px;
+  right: 1vw;
+  z-index: 0;
+}

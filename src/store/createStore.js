@@ -2,12 +2,15 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import makeRootReducer from './reducers'
+import promiseMiddleware from 'redux-promise-middleware'
 
 export default (initialState = {}, history) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk, routerMiddleware(history)]
+  const middleware = [thunk, routerMiddleware(history), promiseMiddleware({
+    promiseTypeSuffixes: ['LOADING', 'SUCCESS', 'ERROR']
+  })]
 
   // ======================================================
   // Store Enhancers

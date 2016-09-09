@@ -5,6 +5,7 @@ import { useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
 import AppContainer from './containers/AppContainer'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
 // ========================================================
 // Browser History Setup
@@ -38,8 +39,8 @@ if (__DEBUG__) {
 // ========================================================
 // Render Setup
 // ========================================================
+injectTapEventPlugin()
 const MOUNT_NODE = document.getElementById('root')
-
 let render = () => {
   const routes = require('./routes/index').default(store)
 
