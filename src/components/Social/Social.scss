@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  width: 100%;
 }
 
 .pic {
@@ -7,4 +8,9 @@
   height: 50px;
   cursor: pointer;
   user-select: none;
+  margin: 10px;
+}
+
+.wrapper {
+  margin: 30px auto;
 }

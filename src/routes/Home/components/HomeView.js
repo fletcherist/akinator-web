@@ -16,7 +16,6 @@ export const HomeView = () => (
     <Gift1 />
     <Brain1 />
     <Footer />
-    <Card />
   </div>
 )
 

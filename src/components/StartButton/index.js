@@ -1,2 +1,3 @@
 import StartButton from './StartButton'
-export default StartButton
+import { connect } from 'react-redux'
+export default connect()(StartButton)

@@ -1,0 +1,46 @@
+.container {
+  width: 40vw;
+  margin: 8em auto;
+
+  @media screen and (max-width: 900px) {
+    width: 60vw;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90vw;
+  }
+}
+
+.subcontainer {
+	width: 400px;
+	margin: 0px auto;
+	@media screen and (max-width: 900px) {
+		width: 60vw;
+	}
+	@media screen and (max-width: 600px) {
+		width: 90vw;
+	}
+}
+
+.buttonHolder {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.title {
+	text-align: center;
+	color: white;
+}
+
+.subtitle {
+	width: 30vw;
+	margin: 30px auto;
+	color: #383737;
+	text-align: center;
+
+	@media screen and (max-width: 900px) {
+    width: 60vw;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90vw;
+  }
+}

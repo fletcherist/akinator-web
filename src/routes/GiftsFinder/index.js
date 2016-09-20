@@ -2,7 +2,7 @@ import GiftsFinder from './components/GiftsFinder'
 
 // Sync route definition
 export default {
-  path: 'giftsfinder',
+  path: 'finder',
   indexRoute: GiftsFinder,
-  component : GiftsFinder
+  component: GiftsFinder
 }
