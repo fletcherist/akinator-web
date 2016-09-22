@@ -11,7 +11,6 @@ export default class GiftsFinder extends Component {
 					<Card />
 					<ActionButtons />
 				</div>
-
 			</div>
     )
   }

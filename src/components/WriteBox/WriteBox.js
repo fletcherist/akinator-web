@@ -15,7 +15,11 @@ export default class WriteBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit (e) {
-		this.props.sendName(e.target.value)
+		console.log(this.form.getValue())
+		let value = this.form.getValue()
+		if (!value) return false
+		this.props.sendName(value)
+		this.goToFinder()
     e.preventDefault()
   }
 
@@ -35,13 +39,14 @@ export default class WriteBox extends Component {
 	            <CardActions>
 	              <TextField
 	                hintText={'Кому'}
+									ref={r => this.form = r}
 	                fullWidth
 	              />
 	            </CardActions>
 	          </Paper>
 	          <div className={s.buttonHolder}>
 	            <RaisedButton
-								onClick={() => this.goToFinder()}
+								onClick={() => this.handleSubmit()}
 	              style={{margin: '0px auto', width: '100%'}}
 	              icon={<PageView />}
 	              label='Приступить'

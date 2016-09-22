@@ -16,7 +16,8 @@ import {
 } from '../constants/actionTypes'
 
 const initialState = {
-  status: LOADING
+  status: LOADING,
+	sessionId: ''
 }
 function finder (state = initialState, action) {
   switch (action.type) {
@@ -33,17 +34,19 @@ function finder (state = initialState, action) {
 		case SEND_NAME_LOADING:
 			return {...state, ...{status: LOADING}}
 		case SEND_NAME_SUCCESS:
-			return {...state}
+			return {...state, ...{status: SUCCESS}, ...{sessionId: action.payload}}
 		case SEND_NAME_ERROR:
 			return {...state, ...{status: ERROR}}
-
 		case SEND_FEEDBACK_LOADING:
 			return {...state, ...{status: LOADING}}
 		case SEND_FEEDBACK_SUCCESS:
 			return {
-				...state, ...{status: SUCCESS}
+				...state,
+				...action.payload,
+				...{status: SUCCESS}
 			}
 		case SEND_FEEDBACK_ERROR:
+			return {...state, ...{status: ERROR}}
     default:
       return state
   }

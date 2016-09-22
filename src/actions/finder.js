@@ -5,36 +5,53 @@ import {
 
 	LIKE_ITEM,
 	DISLIKE_ITEM,
-	NORMAS
+	NORMAS,
+	PUT_FEEDBACK,
+	SEND_FEEDBACK
 } from '../constants/actionTypes'
 
 export const _loadNextGift = createAction(LOAD_NEXT_GIFT)
 
-export const likeItem = createAction(LIKE_ITEM)
-export const dislikeItem = createAction(DISLIKE_ITEM)
-export const normas = createAction(NORMAS)
-
 export const sendName = name => dispatch => {
+	console.log(name, dispatch)
 	return dispatch({
 		type: SEND_NAME,
 		payload: new Promise((resolve, reject) => {
 			fetch('http://akinator-test.appspot.com/session/create', {
 				method: 'POST',
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-				body: `name=${name}`
+				body: `name=${name}&price=0`
 			})
+			.then(r => r.json())
+			.then(r => resolve(r.sessionId))
+			.catch(r => reject(r))
 		})
 	})
 }
 
-export const sendFeedback = feedback => (dispatch, getState) => {
+export const sendFeedback = (giftId, feedback) => (dispatch, getState) => {
+	console.log(getState().history)
+	const history = getState().history
+	const finder = getState().finder
+	let { sessionId } = finder
+	if (!sessionId || sessionId == '') sessionId = '-1'
+	let body = `sessionId=${sessionId}&history=[${JSON.stringify(history)}]`
+	console.log(body)
 	return dispatch({
 		type: SEND_FEEDBACK,
 		payload: new Promise((resolve, reject) => {
-			fetch('http://akinator-test.appspot.com/session/create', {
+			fetch('http://akinator-test.appspot.com/question', {
 				method: 'POST',
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				body: body
 			})
+			.then(r => r.json())
+			.then(r => {
+				if (r) {
+					resolve(r[0])
+				}
+			})
+			.catch(r => reject(r))
 		})
 	})
 }
