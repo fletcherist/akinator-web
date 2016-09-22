@@ -34,13 +34,17 @@ class GiftCard extends Component {
 	}
 
 	renderPreloader () {
-		const { gift } = this.props
 		let imageUrl = ''
+		const { finder } = this.props
+		const { gift } = finder
 		if (gift) {
+			console.log('gift is exist')
 			if (gift.imageUrl) {
+				console.log('image is exist')
 				imageUrl = gift.imageUrl
 			}
 		}
+		console.log('img ' + imageUrl)
 		return (
 			<Card
         style={{margin: '0px auto', width: '100%'}}>

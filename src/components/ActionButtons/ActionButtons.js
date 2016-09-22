@@ -4,6 +4,7 @@ import LikeIcon from 'material-ui/svg-icons/action/favorite'
 import DislikeIcon from 'material-ui/svg-icons/content/clear'
 import NormasButton from 'material-ui/RaisedButton'
 import s from './ActionButtons.scss'
+import Snackbar from 'material-ui/Snackbar'
 
 import {
 	LOADING,
@@ -12,12 +13,38 @@ import {
 } from '../../constants/actionTypes'
 
 export default class ActionButtons extends Component {
+	constructor () {
+		super()
+		this.state = {
+			open: false,
+			message: ''
+		}
+	}
 	clickHandler (feedback) {
+		this.handleSnackbar(feedback)
 		const { finder, addToHistory, sendFeedback } = this.props
 		const { gift } = finder
 		addToHistory([finder.questionId, feedback])
 		sendFeedback()
+	}
 
+	handleSnackbar (feedback) {
+		const messages = {
+			1: ['Впредь постараюсь лучше..', 'Вот как!', 'Ого'],
+			2: ['Я запомнил твой выбор', 'Я думаю следующий подойдёт!',
+				'Следующий будет лучше предыдущего.'],
+			3: ['Хороший выбор', 'Интересно..', 'Я запомнил..', 'Я посмотрю..']
+		}
+		this.setState({
+			open: true,
+			message: messages[feedback][Math.floor(Math.random() * messages[feedback].length)]
+		})
+
+		setTimeout(() => {
+			this.setState({
+				open: false,
+			})
+		}, 8000)
 	}
 	render () {
 		const { status } = this.props.finder
@@ -42,6 +69,11 @@ export default class ActionButtons extends Component {
 					<LikeIcon />
 					</FloatingActionButton>
 				</div>
+				<Snackbar
+					open={this.state.open}
+					message={this.state.message}
+					autoHideDuration={4000}
+				/>
 			</div>
 		)
 	}
