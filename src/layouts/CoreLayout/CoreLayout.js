@@ -7,7 +7,6 @@ export const CoreLayout = ({ children }) => (
   <div className='container text-center'>
     <div className={classes.mainContainer}>
       {children}
-      <Footer />
     </div>
   </div>
 )

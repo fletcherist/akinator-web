@@ -4,7 +4,11 @@ import {
   LOAD_NEXT_GIFT_ERROR,
   LOADING,
   SUCCESS,
-  ERROR
+  ERROR,
+
+	SEND_NAME_LOADING,
+	SEND_NAME_SUCCESS,
+	SEND_NAME_ERROR
 } from '../constants/actionTypes'
 
 const initialState = {
@@ -22,6 +26,12 @@ function finder (state = initialState, action) {
       }
     case LOAD_NEXT_GIFT_ERROR:
       return {...state, ...{status: ERROR}}
+		case SEND_NAME_LOADING:
+			return {...state, ...{status: LOADING}}
+		case SEND_NAME_SUCCESS:
+			return {...state}
+		case SEND_NAME_ERROR:
+			return {...state, ...{status: ERROR}}
     default:
       return state
   }

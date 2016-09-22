@@ -5,4 +5,8 @@
 .sub {
 	max-width: 600px;
 	margin: 4rem auto;
+	@media screen and (max-width: 600px) {
+		margin: 0px auto;
+		padding: 0px;
+	}
 }

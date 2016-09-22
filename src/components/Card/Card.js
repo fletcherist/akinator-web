@@ -8,12 +8,13 @@ class GiftCard extends Component {
   }
 
   render () {
-    const { name, giftId, imageUrl, price, status } = this.props.finder
+		const { gift } = this.props.finder
+    const { name, giftId, imageUrl, price, status } = gift
     return (
       <Card
         style={{
           margin: '0px auto',
-          width: '50%',
+          width: '100%',
         }}>
         <CardMedia
           overlay={

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
 import {
   Card, CardActions, CardHeader, CardMedia,
@@ -15,7 +15,7 @@ export default class WriteBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit (e) {
-    alert('sumbij')
+		this.props.sendName(e.target.value)
     e.preventDefault()
   }
 
@@ -52,4 +52,8 @@ export default class WriteBox extends Component {
       </div>
     )
   }
+}
+
+WriteBox.propTypes = {
+	sendName: PropTypes.func.isRequired
 }
