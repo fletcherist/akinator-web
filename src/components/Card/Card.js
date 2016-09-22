@@ -5,6 +5,7 @@ import {
 	SUCCESS,
 	ERROR
 } from '../../constants/actionTypes'
+import CircularProgress from 'material-ui/CircularProgress'
 
 class GiftCard extends Component {
   componentWillMount () {
@@ -37,9 +38,15 @@ class GiftCard extends Component {
         style={{margin: '0px auto', width: '100%'}}>
         <CardMedia
           overlay={
-            <CardTitle title='123' subtitle={`от ${123}₽`} />
+            <CardTitle title subtitle />
           }>
-          <img style={{height: '400px', backgroundColor: 'rgba(0, 0, 0, 0.5)'}} />
+					<CircularProgress color='rgba(255,235,59 ,1)' style={{
+						position: 'absolute',
+						left: '50%',
+						marginLeft: '-30px',
+						top: '30%'}}
+					/>
+          <img style={{height: '400px', backgroundColor: 'rgba(200,230,201 ,1)'}} />
         </CardMedia>
       </Card>
 		)

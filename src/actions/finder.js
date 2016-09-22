@@ -26,6 +26,18 @@ export const sendName = name => dispatch => {
 		})
 	})
 }
+
+export const sendFeedback = feedback => (dispatch, getState) => {
+	return dispatch({
+		type: SEND_FEEDBACK,
+		payload: new Promise((resolve, reject) => {
+			fetch('http://akinator-test.appspot.com/session/create', {
+				method: 'POST',
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			})
+		})
+	})
+}
 export const loadNextGift = () => dispatch => {
   return dispatch({
     type: LOAD_NEXT_GIFT,

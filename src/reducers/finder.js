@@ -8,7 +8,11 @@ import {
 
 	SEND_NAME_LOADING,
 	SEND_NAME_SUCCESS,
-	SEND_NAME_ERROR
+	SEND_NAME_ERROR,
+
+	SEND_FEEDBACK_LOADING,
+	SEND_FEEDBACK_SUCCESS,
+	SEND_FEEDBACK_ERROR
 } from '../constants/actionTypes'
 
 const initialState = {
@@ -32,6 +36,14 @@ function finder (state = initialState, action) {
 			return {...state}
 		case SEND_NAME_ERROR:
 			return {...state, ...{status: ERROR}}
+
+		case SEND_FEEDBACK_LOADING:
+			return {...state, ...{status: LOADING}}
+		case SEND_FEEDBACK_SUCCESS:
+			return {
+				...state, ...{status: SUCCESS}
+			}
+		case SEND_FEEDBACK_ERROR:
     default:
       return state
   }
