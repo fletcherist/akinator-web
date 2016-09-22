@@ -35,7 +35,7 @@ export const sendFeedback = (giftId, feedback) => (dispatch, getState) => {
 	const finder = getState().finder
 	let { sessionId } = finder
 	if (!sessionId || sessionId == '') sessionId = '-1'
-	let body = `sessionId=${sessionId}&history=[${JSON.stringify(history)}]`
+	let body = `sessionId=${sessionId}&history=${JSON.stringify(history)}`
 	console.log(body)
 	return dispatch({
 		type: SEND_FEEDBACK,
