@@ -46,6 +46,18 @@ export default class ActionButtons extends Component {
 			})
 		}, 8000)
 	}
+
+	componentDidMount () {
+		window.addEventListener('keyup', (e) => {
+			console.log(e.keyCode)
+			switch (e.keyCode) {
+				case 39: return this.clickHandler(3)
+				case 40:
+				case 38: return this.clickHandler(2)
+				case 37: return this.clickHandler(1)
+			}
+		})
+	}
 	render () {
 		const { status } = this.props.finder
 		return (
