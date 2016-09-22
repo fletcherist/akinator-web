@@ -9,14 +9,20 @@ export default class ActionButtons extends Component {
 	render () {
 		return (
 			<div className={s.container}>
-				<FloatingActionButton>
-					<DislikeIcon />
-				</FloatingActionButton>
-				<NormasButton
-					label='вообще нормас' />
-				<FloatingActionButton secondary>
-				<LikeIcon />
-				</FloatingActionButton>
+				<div className={s.left}>
+					<FloatingActionButton>
+						<DislikeIcon />
+					</FloatingActionButton>
+				</div>
+				<div className={s.middle}>
+					<NormasButton
+						label='вообще нормас' />
+				</div>
+				<div className={s.right}>
+					<FloatingActionButton secondary>
+					<LikeIcon />
+					</FloatingActionButton>
+				</div>
 
 			</div>
 		)

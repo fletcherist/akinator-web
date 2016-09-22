@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	width: 100%;
+	padding: 20px;
+}
+
+.left {
+	width: 33%;
+}
+
+.middle {
+	width: 33%;
+}
+
+.right {
+	float: right;
+}
