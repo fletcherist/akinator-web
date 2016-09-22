@@ -52,19 +52,20 @@ export default class ActionButtons extends Component {
 			<div className={s.container}>
 				<div className={s.left}>
 					<FloatingActionButton
-						disabled={status === LOADING}
+						disabled={status === LOADING || status === ERROR}
 						onClick={() => this.clickHandler(1)}>
 						<DislikeIcon />
 					</FloatingActionButton>
 				</div>
-				<div className={s.middle} onClick={() => this.clickHandler(2)}>
+				<div className={s.middle}>
 					<NormasButton
-						disabled={status === LOADING}
+						onClick={() => this.clickHandler(2)}
+						disabled={status === LOADING || status === ERROR}
 						label='вообще нормас' />
 				</div>
 				<div className={s.right}>
 					<FloatingActionButton secondary
-						disabled={status === LOADING}
+						disabled={status === LOADING || status === ERROR}
 						onClick={() => this.clickHandler(3)}>
 					<LikeIcon />
 					</FloatingActionButton>
