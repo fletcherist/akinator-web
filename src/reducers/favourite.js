@@ -5,10 +5,10 @@ import {
 
 const initialState = []
 
-function finder (state = initialState, action) {
+function favorite (state = initialState, action) {
   switch (action.type) {
     case ADD_TO_FAVOURITE:
-      return state
+      return [...state, ...action.payload]
     case REMOVE_FROM_FAVOURITE:
       return state
     default:
@@ -16,4 +16,4 @@ function finder (state = initialState, action) {
   }
 }
 
-export default finder
+export default favorite

@@ -7,7 +7,8 @@ import {
 	DISLIKE_ITEM,
 	NORMAS,
 	PUT_FEEDBACK,
-	SEND_FEEDBACK
+	SEND_FEEDBACK,
+	ADD_TO_FAVOURITE
 } from '../constants/actionTypes'
 
 export const _loadNextGift = createAction(LOAD_NEXT_GIFT)
@@ -78,3 +79,5 @@ export const loadNextGift = () => dispatch => {
     })
   })
 }
+
+export const addToFavourite = createAction(ADD_TO_FAVOURITE)

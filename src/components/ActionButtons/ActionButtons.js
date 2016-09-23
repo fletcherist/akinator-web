@@ -6,6 +6,7 @@ import NormasButton from 'material-ui/RaisedButton'
 import s from './ActionButtons.scss'
 import Snackbar from 'material-ui/Snackbar'
 
+
 import {
 	LOADING,
 	SUCCESS,
@@ -22,10 +23,14 @@ export default class ActionButtons extends Component {
 	}
 	clickHandler (feedback) {
 		this.handleSnackbar(feedback)
-		const { finder, addToHistory, sendFeedback } = this.props
+		const { finder, addToHistory, sendFeedback, addToFavourite } = this.props
 		const { gift } = finder
 		addToHistory([finder.questionId, feedback])
 		sendFeedback()
+
+		if (feedback === 3) {
+			addToFavourite([gift])
+		}
 	}
 
 	handleSnackbar (feedback) {
@@ -63,24 +68,25 @@ export default class ActionButtons extends Component {
 		return (
 			<div className={s.container}>
 				<div className={s.left}>
-					<FloatingActionButton
+					<NormasButton
+						label='не подходит'
+						primary
 						disabled={status === LOADING || status === ERROR}
 						onClick={() => this.clickHandler(1)}>
-						<DislikeIcon />
-					</FloatingActionButton>
+					</NormasButton>
 				</div>
 				<div className={s.middle}>
 					<NormasButton
 						onClick={() => this.clickHandler(2)}
 						disabled={status === LOADING || status === ERROR}
-						label='вообще нормас' />
+						label='ну нормально..' />
 				</div>
 				<div className={s.right}>
-					<FloatingActionButton secondary
+					<NormasButton secondary
 						disabled={status === LOADING || status === ERROR}
+						label='круто! запомнить'
 						onClick={() => this.clickHandler(3)}>
-					<LikeIcon />
-					</FloatingActionButton>
+					</NormasButton>
 				</div>
 				<Snackbar
 					open={this.state.open}
